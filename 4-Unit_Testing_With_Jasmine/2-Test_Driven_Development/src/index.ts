@@ -7,18 +7,10 @@ import axios from 'axios';
  * https://restcountries.com/v3.1/region/{regionalbloc} for region blocks
  */
 
-/** Create getCountry Function here */
-async function getCountry(name: string) {
-    const getApi = await axios(`https://restcountries.com/v3.1/name/${name}`);
-    const data = getApi.data[0];
-    return {
-        capital: data.capital[0], 
-        region: data.region,
-        fifa: data.fifa
-    };
-}
+// Create getCountry Function here 
+// It should return the country data based on its name
 
-/** Create a test for this getRegion function */
+// Create a test for this getRegion function
 async function getRegionCountries(region: string) {
   const getApi = await axios(
     `https://restcountries.com/v3.1/region/${region}`
@@ -31,12 +23,8 @@ async function getRegionCountries(region: string) {
   return countries;
 }
 
-/** Create getCurrency function here */
-async function getCurrency(country: string) {
-    const getApi = await axios(`https://restcountries.com/v3.1/currency/${country}`);
-    const data = getApi.data[0];
-    return data;
-}
+// Create getCurrency function here 
+// It should return the country data based on the currency code
 
 export default {
   getCountry,
