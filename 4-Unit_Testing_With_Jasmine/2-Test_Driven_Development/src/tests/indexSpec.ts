@@ -5,16 +5,18 @@ it("should get basic data on the country canada", async () => {
 	expect(data).toEqual({
 		capital: 'Ottawa',
 		region: 'Americas',
-		numericCode: '124'
+		fifa: 'CAN'
 	});
 });
 
 /** Add test for getRegionCountries function here */
+it("should get the countries in the region Europe", async () => {
+    const data = await countries.getRegionCountries('europe');
+    expect(data.length).toBeGreaterThan(40);
+    expect(data[0]).toEqual(jasmine.objectContaining({ common: jasmine.any(String) }));
+});
 
-
-it("should get capitals of NAFTA countries", async () => {
-	const data = await countries.getRegionCapitals('nafta');
-	expect(data).toEqual([
-		'Ottawa', 'Mexico City', 'Washington, D.C.'
-	]);
+it("Returns the country name based on the currency", async () => {
+	const data = await countries.getCurrency('jpy');
+	expect(data.name.common).toEqual('Japan');
 });
